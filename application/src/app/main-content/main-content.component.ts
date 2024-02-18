@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./main-content.component.css']
 })
 export class MainContentComponent {
-  dummyData = [
+  data = [
     { id: 1, name: 'John Doe', age: 30, email: 'john@example.com' },
     { id: 2, name: 'Jane Smith', age: 25, email: 'jane@example.com' },
     { id: 3, name: 'Alice Johnson', age: 35, email: 'alice@example.com' },
@@ -16,21 +16,15 @@ export class MainContentComponent {
     { id: 7, name: 'Sara Davis', age: 33, email: 'sara@example.com' },
     { id: 8, name: 'David Miller', age: 39, email: 'david@example.com' }
   ];
-  filteredData = this.dummyData.slice(); // Initially, show all data
 
-  filters = {
-    id: '',
-    name: '',
-    age: '',
-    email: ''
-  };
+  filteredData = this.data.slice(); // Initially, show all data
 
-  applyFilters() {
-    this.filteredData = this.dummyData.filter(item =>
-      item.id.toString().includes(this.filters.id) &&
-      item.name.toLowerCase().includes(this.filters.name.toLowerCase()) &&
-      item.age.toString().includes(this.filters.age) &&
-      item.email.toLowerCase().includes(this.filters.email.toLowerCase())
+  applyFilters(idFilter: string, nameFilter: string, ageFilter: string, emailFilter: string) {
+    this.filteredData = this.data.filter(item =>
+      item.id.toString().includes(idFilter) &&
+      item.name.toLowerCase().includes(nameFilter.toLowerCase()) &&
+      item.age.toString().includes(ageFilter) &&
+      item.email.toLowerCase().includes(emailFilter.toLowerCase())
     );
   }
 }

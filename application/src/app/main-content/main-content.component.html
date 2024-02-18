@@ -1,8 +1,10 @@
 <div class="main-content">
-    <input type="text" placeholder="Search ID" (input)="applyFilters()">
-    <input type="text" placeholder="Search Name"  (input)="applyFilters()">
-    <input type="text" placeholder="Search Age"  (input)="applyFilters()">
-    <input type="text" placeholder="Search Email" (input)="applyFilters()">
+    <input type="text" placeholder="Search ID" #idFilter>
+  <input type="text" placeholder="Search Name" #nameFilter>
+  <input type="text" placeholder="Search Age" #ageFilter>
+  <input type="text" placeholder="Search Email" #emailFilter>
+
+  <button (click)="applyFilters(idFilter.value, nameFilter.value, ageFilter.value, emailFilter.value)">Apply Filters</button>
     <table>
         <thead>
           <tr>
@@ -13,7 +15,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of dummyData">
+          <tr *ngFor="let item of filteredData">
             <td>{{ item.id }}</td>
             <td>{{ item.name }}</td>
             <td>{{ item.age }}</td>

@@ -1,0 +1,24 @@
+<div class="main-content">
+    <input type="text" placeholder="Search ID" (input)="applyFilters()">
+    <input type="text" placeholder="Search Name"  (input)="applyFilters()">
+    <input type="text" placeholder="Search Age"  (input)="applyFilters()">
+    <input type="text" placeholder="Search Email" (input)="applyFilters()">
+    <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of dummyData">
+            <td>{{ item.id }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.age }}</td>
+            <td>{{ item.email }}</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>

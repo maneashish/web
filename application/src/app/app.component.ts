@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'application';
+  sidebar: boolean = false;
+
+  toggleSidebar() {
+    this.sidebar = !this.sidebar;
+  }
+
+  toggleLanguage() {
+    // Implement language toggle logic here
+  }
 }
